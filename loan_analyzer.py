@@ -213,3 +213,4 @@ with open(output_path, "w", newline='') as csvfile:
     csvwriter.writerow(header)
     for loan in inexpensive_loans:
         csvwriter.writerow(loan.values())
+        
