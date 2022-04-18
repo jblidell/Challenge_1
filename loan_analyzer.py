@@ -2,6 +2,8 @@
 import csv
 from pathlib import Path
 
+from sympy import rem
+
 """Part 1: Automate the Calculations.
 
 Automate the calculations for the loan portfolio summaries.
@@ -114,12 +116,19 @@ new_loan = {
 # @TODO: Define a new function that will be used to calculate present value.
 #    This function should include parameters for `future_value`, `remaining_months`, and the `annual_discount_rate`
 #    The function should return the `present_value` for the loan.
-# YOUR CODE HERE!
+def present_value(future_value, remaining_months, annual_discount_rate):
+    current_value = future_value / (1 + annual_discount_rate/12) ** remaining_months
+
+    return current_value
+future_value = new_loan.get("future_value")
+remaining_months = new_loan.get("remaining_months")
+annual_discount_rate = .20
 
 
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
-# YOUR CODE HERE!
+
+present_value(future_value, remaining_months,annual_discount_rate)
 print(f"The present value of the loan is: {present_value}")
 
 
