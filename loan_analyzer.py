@@ -128,8 +128,8 @@ annual_discount_rate = .20
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 
-present_value(future_value, remaining_months,annual_discount_rate)
-print(f"The present value of the loan is: {present_value}")
+npv = present_value(future_value, remaining_months,annual_discount_rate)
+print(f"The present value of the loan is: {npv}")
 
 
 """Part 4: Conditionally filter lists of loans.
@@ -206,8 +206,7 @@ output_path = Path("inexpensive_loans.csv")
 
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
-import csv
-from pathlib import Path
+
 with open(output_path, "w", newline='') as csvfile:
     csvwriter = csv.writer(csvfile, delimiter=",")
     csvwriter.writerow(header)
